@@ -32,7 +32,7 @@ function About() {
               <ListGroup className="text-center">
                 <ListGroup.Item style={{ backgroundColor: 'transparent', color: '#fff', border: 'none' }}>I love watching movies and TV shows.</ListGroup.Item>
                 <ListGroup.Item style={{ backgroundColor: 'transparent', color: '#fff', border: 'none' }}>I love Taylor Swift's music.</ListGroup.Item>
-                <ListGroup.Item style={{ backgroundColor: 'transparent', color: '#fff', border: 'none' }}>I have a pet cat named Bonbon!</ListGroup.Item>
+                <ListGroup.Item style={{ backgroundColor: 'transparent', color: '#fff', border: 'none' }}>I have a pet cat named Bonbon.</ListGroup.Item>
               </ListGroup>
             </Card.Body>
           </Card>
