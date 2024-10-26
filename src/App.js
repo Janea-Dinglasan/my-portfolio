@@ -7,9 +7,6 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import './App.css'; // Import the CSS file where you can add custom styles
 
-// You cannot directly import fonts from a URL like that in React.
-// Instead, add the font link to your index.html file in the public folder.
-
 function App() {
   const [hoveredNavItem, setHoveredNavItem] = useState(null);
 
@@ -26,15 +23,15 @@ function App() {
     position: 'absolute',
     left: '0',
     bottom: '0',
-    height: '2px',
+    height: '2px', // Adjust height of the hover line
     width: '100%',
-    backgroundColor: '#f7b267',
-    transition: 'width 0.3s ease-in-out',
+    backgroundColor: '#f7b267', // Change color if needed
+    transition: 'all 0.3s ease-in-out', // Add transition for smoother animation
   };
 
   return (
     <Router>
-      <div style={{ backgroundColor: '#1c2a32', minHeight: '100vh', color: '#fff', fontFamily: 'Arvo, sans-serif' }}> {/* Apply Arvo font to the entire App */}
+      <div style={{ backgroundColor: '#1c2a32', minHeight: '100vh', color: '#fff', fontFamily: 'Arvo, sans-serif' }}>
         <Navbar expand="lg" variant="dark" style={{ backgroundColor: '#1c2a32' }} sticky="top">
           <Container>
             <Navbar.Brand 
@@ -46,15 +43,15 @@ function App() {
                 color: '#f4e0ca', 
                 fontFamily: 'Lobster, sans-serif', 
                 fontStyle: 'italic',
-                padding: '5px 10px', // Add padding for spacing
-                textShadow: '1px 1px 3px #605929' // Add shadow effect
-              }} // Changed fontFamily here
+                padding: '5px 10px',
+                textShadow: '1px 1px 3px #605929' 
+              }} 
             >
               Jajanae_l
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ms-auto" style={{ fontSize: '20px' }}>
+              <Nav className="ms-auto" style={{ fontSize: '22px', fontWeight: 'bold'}}>
                 {['Home', 'About', 'Skills', 'Contact'].map((item, index) => (
                   <Nav.Link
                     as={Link}
@@ -67,7 +64,7 @@ function App() {
                     <span style={{ position: 'relative' }}>
                       {item}
                       {hoveredNavItem === item && (
-                        <span style={{ ...navLinkHoverEffect, width: '100%' }} />
+                        <span style={{ ...navLinkHoverEffect }} />
                       )}
                     </span>
                   </Nav.Link>
