@@ -9,13 +9,14 @@ import './App.css'; // Import the CSS file where you can add custom styles
 
 function App() {
   const [hoveredNavItem, setHoveredNavItem] = useState(null);
+  const [navExpanded, setNavExpanded] = useState(false); // State to control navbar expansion
 
   const navLinkStyle = {
     color: '#f7b267',
     paddingBottom: '5px',
     position: 'relative',
     textDecoration: 'none',
-    fontFamily: 'Arvo, sans-serif', // Apply Arvo font here
+    fontFamily: 'Arvo, sans-serif', 
   };
 
   const navLinkHoverEffect = {
@@ -29,10 +30,15 @@ function App() {
     transition: 'all 0.3s ease-in-out', // Add transition for smoother animation
   };
 
+  // Function to handle link clicks and close the navbar
+  const handleNavLinkClick = () => {
+    setNavExpanded(false); // Close the navbar
+  };
+
   return (
     <Router>
       <div style={{ backgroundColor: '#1c2a32', minHeight: '100vh', color: '#fff', fontFamily: 'Arvo, sans-serif' }}>
-        <Navbar expand="lg" variant="dark" style={{ backgroundColor: '#1c2a32' }} sticky="top">
+        <Navbar expand="lg" variant="dark" style={{ backgroundColor: '#1c2a32' }} sticky="top" expanded={navExpanded}>
           <Container>
             <Navbar.Brand 
               as={Link} 
@@ -49,7 +55,10 @@ function App() {
             >
               Jajanae_l
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle 
+              aria-controls="basic-navbar-nav" 
+              onClick={() => setNavExpanded(prev => !prev)} // Toggle the navbar state
+            />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto" style={{ fontSize: '22px', fontWeight: 'bold'}}>
                 {['Home', 'About', 'Skills', 'Contact'].map((item, index) => (
@@ -60,6 +69,7 @@ function App() {
                     style={navLinkStyle}
                     onMouseEnter={() => setHoveredNavItem(item)}
                     onMouseLeave={() => setHoveredNavItem(null)}
+                    onClick={handleNavLinkClick} // Close the navbar on click
                   >
                     <span style={{ position: 'relative' }}>
                       {item}
