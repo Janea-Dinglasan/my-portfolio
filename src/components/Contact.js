@@ -42,45 +42,53 @@ function Contact() {
               {successMessage}
             </Alert>
           )}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName" className="mb-3">
-              <Form.Label>Name:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group controlId="formEmail" className="mb-3">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group controlId="formMessage" className="mb-3">
-              <Form.Label>Message:</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="Enter your message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit" className="w-100">
-              Send Message
-            </Button>
-          </Form>
+          {/* Box around the form */}
+          <div style={{
+            backgroundColor: '#2a404a', // Change this color as needed
+            padding: '20px',
+            borderRadius: '10px', // Rounded corners
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Optional shadow effect
+          }}>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formName" className="mb-3">
+                <Form.Label>Name:</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group controlId="formEmail" className="mb-3">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter your email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group controlId="formMessage" className="mb-3">
+                <Form.Label>Message:</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Enter your message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Button variant="primary" type="submit" className="w-100">
+                Send Message
+              </Button>
+            </Form>
+          </div>
         </Col>
       </Row>
     </Container>
